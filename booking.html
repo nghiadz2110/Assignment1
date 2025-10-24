@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book a table or pre-order from Dran's Coffee. Fill out our full-featured form.">
+    <title>Booking & Pre-Order - Dran's Coffee</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://placehold.co/16x16/664229/white?text=D" type="image/x-icon">
+</head>
+<body>
+    <!-- Consistent Header & Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Dran's Coffee</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="booking.html" class="active">Booking</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="https://www.google.com/maps/place/D%E2%80%99RAN+CAFE/@10.8818185,106.8143925,16z/data=!4m6!3m5!1s0x3174d9007252f6e1:0x9f1a906e943654b7!8m2!3d10.8818185!4d106.8143925!16s/g/11mcsy8cxc?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw==" target="_blank">External Link</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container content-section">
+        <h1>Book a Table or Pre-Order</h1>
+        <p>Use this form to book a table for groups of 4 or more, or to pre-order for catering. We will call you to confirm.</p>
+
+        <!-- 
+          Full-Featured Form (4.2 Technical Requirement)
+          - All labels, fieldset, legend
+          - All input types
+          - All validation attributes
+        -->
+        <form action="#success" method="post" class="booking-form">
+
+            <!-- Fieldset 1: Contact Info -->
+            <fieldset>
+                <legend>Your Contact Information</legend>
+                
+                <div>
+                    <label for="full_name">Full Name:</label>
+                    <input type="text" id="full_name" name="full_name" required>
+                </div>
+
+                <div>
+                    <label for="email_address">Email:</label>
+                    <input type="email" id="email_address" name="email_address" required>
+                </div>
+
+                <div>
+                    <label for="phone_number">Phone (10 digits):</label>
+                    <input type="tel" id="phone_number" name="phone_number" 
+                           pattern="[0-9]{10}" 
+                           placeholder="e.g., 0912345678" 
+                           required>
+                </div>
+
+                <div>
+                    <label for="create_password">Create a Password (for order tracking):</label>
+                    <input type="password" id="create_password" name="create_password" minlength="8">
+                </div>
+            </fieldset>
+
+            <!-- Fieldset 2: Booking Details -->
+            <fieldset>
+                <legend>Booking Details</legend>
+
+                <div>
+                    <label for="party_size">Party Size:</label>
+                    <input type="number" id="party_size" name="party_size" min="1" max="20" step="1" value="2">
+                </div>
+
+                <div>
+                    <label for="booking_date">Booking Date:</label>
+                    <input type="date" id="booking_date" name="booking_date" required>
+                </div>
+
+                <div>
+                    <!-- Range Input -->
+                    <label for="ambiance_level">Ambiance (0=Quiet, 10=Lively):</label>
+                    <input type="range" id="ambiance_level" name="ambiance_level" min="0" max="10" value="5">
+                </div>
+
+                <div>
+                    <label for="table_color">Preferred Tablecloth Color (just for fun!):</label>
+                    <input type="color" id="table_color" name="table_color" value="#664229">
+                </div>
+            </fieldset>
+
+            <!-- Fieldset 3: Preferences -->
+            <fieldset>
+                <legend>Preferences</legend>
+
+                <!-- Radio Buttons -->
+                <div class="form-group">
+                    <p>Seating Preference:</p>
+                    <input type="radio" id="seating_indoor" name="seating_preference" value="indoor" checked>
+                    <label for="seating_indoor">Indoor</label>
+                    
+                    <input type="radio" id="seating_outdoor" name="seating_preference" value="outdoor">
+                    <label for="seating_outdoor">Outdoor (Patio)</label>
+                </div>
+
+                <!-- Checkboxes -->
+                <div class="form-group">
+                    <p>Special Accommodations:</p>
+                    <input type="checkbox" id="accom_high_chair" name="accommodations" value="high_chair">
+                    <label for="accom_high_chair">High Chair</label>
+                    
+                    <input type="checkbox" id="accom_accessible" name="accommodations" value="accessible">
+                    <label for="accom_accessible">Wheelchair Accessible</label>
+                </div>
+            </fieldset>
+
+            <!-- Fieldset 4: Pre-Order -->
+            <fieldset>
+                <legend>Pre-Order (Optional)</legend>
+                
+                <div>
+                    <!-- Select with Optgroup -->
+                    <label for="main_drink">Primary Drink Order:</label>
+                    <select id="main_drink" name="main_drink">
+                        <option value="">--Please choose an option--</option>
+                        <optgroup label="Coffee">
+                            <option value="latte">Latte</option>
+                            <option value="cappuccino">Cappuccino</option>
+                            <option value="americano">Americano</option>
+                        </optgroup>
+                        <optgroup label="Tea & Other">
+                            <option value="green_tea">Green Tea</option>
+                            <option value="hot_chocolate">Hot Chocolate</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div>
+                    <!-- Datalist -->
+                    <label for="pastry_search">Search for a Pastry:</label>
+                    <input list="pastry_options" id="pastry_search" name="pastry_search">
+                    <datalist id="pastry_options">
+                        <option value="Croissant"></option>
+                        <option value="Blueberry Muffin"></option>
+                        <option value-"Chocolate Cookie"></option>
+                        <option value="Apple Danish"></option>
+                    </datalist>
+                </div>
+
+                <div>
+                    <!-- Textarea -->
+                    <label for="special_requests">Special Requests / Catering Details:</label>
+                    <textarea id="special_requests" name="special_requests" rows="5"
+                              placeholder="e.g., 'Celebrating a birthday', '12 croissants for pickup'"></textarea>
+                </div>
+
+                <div>
+                    <!-- File Input -->
+                    <label for="event_plan">Upload Event Plan (PDF only):</label>
+                    <input type="file" id="event_plan" name="event_plan" accept=".pdf">
+                </div>
+            </fieldset>
+
+            <!-- Hidden Input & Buttons -->
+            <input type="hidden" id="form_source" name="form_source" value="booking-page-v1">
+            
+            <div class="form-buttons">
+                <!-- Submit and Reset Buttons -->
+                <button type="submit" class="btn">Submit Booking</button>
+                <button type="reset" class="btn btn-outline">Reset Form</button>
+            </div>
+        </form>
+
+    </main>
+
+    <!-- Consistent Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Dran's Coffee. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
